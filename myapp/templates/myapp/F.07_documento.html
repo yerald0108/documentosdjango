@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario F.07-C - Ministerio de Comunicaciones (completo)</title>
+    <style>
+        /* ===== ESTILOS BASE (compartidos por todas las páginas) ===== */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            color: #000;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* cada página se comporta como una hoja independiente */
+        .page {
+            width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            min-height: 1000px;  /* simula altura de oficio */
+        }
+
+        /* estilos de tabla y celdas (heredados de páginas 1-2) */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 5px;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 4px;
+            vertical-align: top;
+        }
+
+        .header-table td {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-style: italic;
+            font-weight: bold;
+            font-size: 13px;
+            margin: 12px 0 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tipo-solicitud {
+            font-style: normal;
+            font-size: 10px;
+            border: 1px solid #000;
+            padding: 3px 8px;
+            font-weight: bold;
+        }
+
+        .label {
+            display: block;
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+
+        .input-box { height: 18px; }   /* línea vacía para rellenar */
+
+        .nit-box {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #000;
+            display: inline-block;
+            margin-right: -1px;
+            text-align: center;
+            line-height: 16px;
+        }
+
+        .coord-input {
+            width: 30px;
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            margin: 0 3px;
+            height: 12px;
+        }
+
+        .obs-box {
+            border: 1px solid #000;
+            height: 150px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        /* ===== ESTILOS PARA PÁGINAS DE INSTRUCCIONES (PÁGINA 3 y PÁGINA 4) ===== */
+        .instruccion-container {
+            width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 30px 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+        }
+
+        .instruccion-header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .instruccion-header-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .logo-cell {
+            width: 25%;
+            font-size: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .title-cell {
+            width: 60%;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .code-cell {
+            width: 15%;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .instruction-title {
+            text-align: center;
+            text-decoration: underline;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content-table th, .content-table td {
+            border: 1px solid #777;
+            padding: 8px 12px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .content-table th {
+            background-color: #ffffff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .col-no { width: 8%; text-align: center; }
+        .col-denominacion { width: 35%; font-weight: bold; }
+        .col-especificaciones { width: 57%; }
+
+        /* Ajustes específicos para la página 4 (continuación de instrucciones) */
+        .content-table-p4 th, .content-table-p4 td {
+            border: 1px solid #000;
+            padding: 8px 12px;
+            font-size: 13px;
+            line-height: 1.3;
+            vertical-align: middle;
+        }
+        .content-table-p4 .col-no { width: 10%; text-align: center; }
+        .content-table-p4 .col-denominacion { width: 40%; font-weight: bold; }
+        .content-table-p4 .col-especificaciones { width: 50%; }
+
+        /* Filas especiales (Observaciones/Datos Solicitud) en página 4 */
+        .special-row td {
+            height: 60px;
+        }
+
+        /* regla de impresión: cada contenedor con clase .page o .instruccion-container fuerza salto */
+        @media print {
+            body { background-color: #fff; }
+            .page, .instruccion-container { 
+                border: none; 
+                box-shadow: none; 
+                margin: 0 auto; 
+                page-break-after: always;
+            }
+            /* el último contenedor no necesita saldo extra, pero se deja igual */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== PÁGINA 1 ==================== -->
+    <div class="page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Escudo_de_Cuba.svg/80px-Escudo_de_Cuba.svg.png" alt="Escudo" style="width: 35px;"><br>
+                    <div style="font-size: 7px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 65%; font-size: 11px;">
+                    SOLICITUD DE LICENCIA PARA RADIOBASES PARA RADIOBASES DEL SISTEMA DE RADIO TRONCALIZADO ANALÓGICO O SU MODIFICACIÓN.
+                </td>
+                <td style="width: 10%; font-size: 18px;">F.07-C</td>
+            </tr>
+        </table>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 5px;">
+            <div class="tipo-solicitud">
+                TIPO DE SOLICITUD &nbsp;&nbsp;&nbsp; 
+                INSCRIPCIÓN <span style="border: 1px solid #000; padding: 0 5px;">&nbsp;</span> &nbsp;&nbsp; 
+                MODIFICACIÓN <span style="border: 1px solid #000; padding: 0 5px;">&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="section-title">1. Datos Entidad Solicitante</div>
+        <table>
+            <tr><td colspan="4"><span class="label">1.1. Nombre Completo de la entidad solicitante</span><div class="input-box"></div></td></tr>
+            <tr>
+                <td colspan="2" style="width: 55%;">
+                    <span class="label">1.2. Número de Identificación Tributaria (NIT)</span>
+                    <div>
+                        <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <span class="label">1.3. Código de la entidad</span>
+                    <div>
+                        <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div> . <div class="nit-box"></div> . <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr><td colspan="4"><span class="label">1.4. Dirección de la entidad</span><div class="input-box"></div></td></tr>
+            <tr><td colspan="4"><span class="label">1.5. Nombre de la Persona Contacto</span><div class="input-box"></div></td></tr>
+            <tr>
+                <td style="width: 33%;"><span class="label">1.6. Teléfono:</span><div class="input-box"></div></td>
+                <td style="width: 33%;"><span class="label">1.7. Fax:</span><div class="input-box"></div></td>
+                <td colspan="2"><span class="label">1.8. Correo Electrónico</span><div class="input-box"></div></td>
+            </tr>
+        </table>
+
+        <div class="section-title">2. Ubicación de la radiobase.</div>
+        <table>
+            <tr><td colspan="2"><span class="label">2.1. Dirección exacta u otra descripción de la ubicación.</span><div class="input-box"></div></td></tr>
+            <tr>
+                <td style="width: 50%;"><span class="label">2.2. Provincia</span><div class="input-box"></div></td>
+                <td><span class="label">2.3. Municipio</span><div class="input-box"></div></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span class="label">2.4. Coordenadas Geográficas</span>
+                    <div style="display: flex; justify-content: space-around; text-align: center; padding: 5px;">
+                        <div>Latitud: <div class="coord-input"></div>° <div class="coord-input"></div>' <div class="coord-input"></div>"</div>
+                        <div>Longitud: <div class="coord-input"></div>° <div class="coord-input"></div>' <div class="coord-input"></div>"</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <span class="label">2.5. Cobertura que se pretende alcanzar:</span>
+        <div style="border: 1px solid #000; padding: 8px; margin-bottom: 10px; background: #fafafa;">
+            Se anexará mapa con el estudio del área de cobertura que se pretende alcanzar
+        </div>
+
+        <div class="section-title">3. Datos técnicos de la radiobase.</div>
+        <table>
+            <tr><td><span class="label">3.1. Tipo de estándar</span><div class="input-box"></div></td></tr>
+        </table>
+        <span class="label">3.2. Tipo de conexión a la red</span>
+        <table>
+            <tr>
+                <td style="width: 35%;">Por fibras ópticas</td><td style="width: 15%; text-align: center;">□</td>
+                <td style="width: 35%;">Por radioenlace</td><td style="width: 15%; text-align: center;">□</td>
+            </tr>
+            <tr>
+                <td>Por enlace satelital</td><td style="text-align: center;">□</td>
+                <td>Otros</td><td style="text-align: center;">□</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td style="width: 33%;"><span class="label">3.3. Número</span><div class="input-box"></div></td>
+                <td style="width: 33%;"><span class="label">3.4. Nombre</span><div class="input-box"></div></td>
+                <td><span class="label">3.5. SYSCODE</span><div class="input-box"></div></td>
+            </tr>
+        </table>
+    </div> <!-- fin página 1 -->
+
+    <!-- ==================== PÁGINA 2 ==================== -->
+    <div class="page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Escudo_de_Cuba.svg/80px-Escudo_de_Cuba.svg.png" alt="Escudo" style="width: 35px;"><br>
+                    <div style="font-size: 7px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 65%; font-size: 11px;">
+                    SOLICITUD DE LICENCIA PARA RADIOBASES PARA RADIOBASES DEL SISTEMA DE RADIO TRONCALIZADO ANALÓGICO O SU MODIFICACIÓN.
+                </td>
+                <td style="width: 10%; font-size: 18px;">F.07-C</td>
+            </tr>
+        </table>
+
+        <div style="margin-top: 20px;">
+            <table>
+                <tr>
+                    <td style="width: 33%;"><span class="label">3.6. Marca</span><div class="input-box"></div></td>
+                    <td style="width: 33%;"><span class="label">3.7. Modelo</span><div class="input-box"></div></td>
+                    <td><span class="label">3.8. Potencia Salida del Transmisor (W):</span><div class="input-box"></div></td>
+                </tr>
+                <tr>
+                    <td><span class="label">3.9. Banda de frecuencias del canal de transmisión:</span><div class="input-box"></div></td>
+                    <td><span class="label">3.10. Banda de frecuencia del canal de recepción:</span><div class="input-box"></div></td>
+                    <td><span class="label">3.11. Ancho de Banda (ocupado):</span><div class="input-box"></div></td>
+                </tr>
+                <tr>
+                    <td><span class="label">3.12. Tipo de antena:</span><div class="input-box"></div></td>
+                    <td style="width: 15%;"><span class="label">3.13. Cantidad</span><div class="input-box"></div></td>
+                    <td><span class="label">3.14. Polarización:</span><div class="input-box"></div></td>
+                    <td><span class="label">3.15. Ganancia (dB)</span><div class="input-box"></div></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 50%;"><span class="label">3.16. Ganancia máxima en el eje del lóbulo principal (dBi):</span><div class="input-box"></div></td>
+                    <td><span class="label">3.17. Altura del centro de radiación (Sobre la Tierra)</span><div class="input-box"></div></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 33%;"><span class="label">3.18. Para antenas directivas, anchura del haz (grados)</span><div class="input-box" style="height: 30px;"></div></td>
+                    <td style="width: 33%;"><span class="label">3.19. Azimut de la antena (grados)</span><div class="input-box" style="height: 30px;"></div></td>
+                    <td><span class="label">3.20. Altura total del sitio (Sobre el nivel del mar).</span><div class="input-box" style="height: 30px;"></div></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 15px;">
+                <span class="label" style="font-weight: bold; font-size: 11px;">Observaciones</span>
+                <div class="obs-box"></div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <span class="label" style="font-weight: bold; font-size: 11px;">Datos Solicitud</span>
+                <table>
+                    <tr>
+                        <td style="width: 20%; vertical-align: middle; text-align: center;"><b>Fecha de Solicitud</b></td>
+                        <td style="width: 30%;"></td>
+                        <td style="width: 20%; vertical-align: middle; text-align: center;"><b>FIRMA</b></td>
+                        <td style="width: 30%;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div> <!-- fin página 2 -->
+
+    <!-- ==================== PÁGINA 3 (INSTRUCCIONES, primera parte) ==================== -->
+    <div class="instruccion-container">
+        <table class="instruccion-header-table">
+            <tr>
+                <td class="logo-cell">
+                    REPÚBLICA DE CUBA<br>MINISTERIO DE COMUNICACIONES
+                </td>
+                <td class="title-cell">
+                    SOLICITUD DE LICENCIA PARA RADIOBASES PARA RADIOBASES DEL SISTEMA DE RADIO TRONCALIZADO ANALÓGICO O SU MODIFICACIÓN.
+                </td>
+                <td class="code-cell">F.07-C</td>
+            </tr>
+        </table>
+
+        <div class="instruction-title">Instrucciones para llenar el Formulario</div>
+
+        <table class="content-table">
+            <thead>
+                <tr>
+                    <th class="col-no">No. del campo</th>
+                    <th class="col-denominacion">Denominación del campo</th>
+                    <th class="col-especificaciones">Especificaciones del campo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="col-no">1.1.</td><td class="col-denominacion">Nombre Completo de la Entidad</td><td class="col-especificaciones">Nombre completo de la entidad jurídica que presenta la solicitud, no especificar solo con siglas.</td></tr>
+                <tr><td class="col-no">1.2.</td><td class="col-denominacion">Número de Identificación Tributaria (NIT)</td><td class="col-especificaciones">Número de Identificación asignado a las personas jurídicas por la Oficina Nacional de Administración Tributaria (ONAT).</td></tr>
+                <tr><td class="col-no">1.3.</td><td class="col-denominacion">Código de la Entidad:</td><td class="col-especificaciones">Número del código asignado por la ONEI en el caso de entidades nacionales o del Registro en la Cámara de Comercio en los casos de las empresas mixtas, AEI, etc. En el caso de especificar el Reg. Cámara de Comercio emplear solo los últimos 5 campos para ello</td></tr>
+                <tr><td class="col-no">1.4.</td><td class="col-denominacion">Dirección de la Entidad</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">1.5.</td><td class="col-denominacion">Nombre de la Persona de Contacto</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">1.6.</td><td class="col-denominacion">Teléfono</td><td class="col-especificaciones">Teléfono fijo o móvil de la persona de contacto.</td></tr>
+                <tr><td class="col-no">1.7.</td><td class="col-denominacion">FAX</td><td class="col-especificaciones">Fax de la persona de contacto o la entidad.</td></tr>
+                <tr><td class="col-no">1.8.</td><td class="col-denominacion">Correo Electrónico</td><td class="col-especificaciones">Correo electrónico de la persona de contacto</td></tr>
+                <tr><td class="col-no">2.1.</td><td class="col-denominacion">Dirección exacta u otra descripción de la ubicación</td><td class="col-especificaciones">Especificar dirección exacta de la Radiobase.</td></tr>
+                <tr><td class="col-no">2.2.</td><td class="col-denominacion">Provincia</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">2.3.</td><td class="col-denominacion">Municipio</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">2.4.</td><td class="col-denominacion">Coordenadas Geográficas</td><td class="col-especificaciones">Coordenadas Geográficas según la ubicación de la estación en Grados – Minutos – Segundos.</td></tr>
+                <tr><td class="col-no">2.5.</td><td class="col-denominacion">Cobertura que se pretende alcanzar</td><td class="col-especificaciones">Se anexará mapa con el estudio del área de cobertura que se pretende alcanzar</td></tr>
+                <tr><td class="col-no">3.1.</td><td class="col-denominacion">Tipo de estándar</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">3.2.</td><td class="col-denominacion">Tipo de conexión a la red</td><td class="col-especificaciones">Seleccionar una de las opciones especificadas.</td></tr>
+                <tr><td class="col-no">3.3.</td><td class="col-denominacion">Número</td><td class="col-especificaciones">Número de identificación de la radiobase</td></tr>
+                <tr><td class="col-no">3.4.</td><td class="col-denominacion">Nombre</td><td class="col-especificaciones">Nombre convencional de la radiobase</td></tr>
+                <tr><td class="col-no">3.5.</td><td class="col-denominacion">SYSCODE</td><td class="col-especificaciones">Código del sistema</td></tr>
+                <tr><td class="col-no">3.6.</td><td class="col-denominacion">Marca (Radiobase)</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">3.7.</td><td class="col-denominacion">Modelo (Radiobase)</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+                <tr><td class="col-no">3.8.</td><td class="col-denominacion">Potencia de Salida del Transmisor (W)</td><td class="col-especificaciones">Se explica por sí solo</td></tr>
+            </tbody>
+        </table>
+    </div> <!-- fin página 3 -->
+
+    <!-- ==================== PÁGINA 4 (INSTRUCCIONES, continuación) ==================== -->
+    <div class="instruccion-container">
+        <table class="instruccion-header-table">
+            <tr>
+                <td class="logo-cell">
+                    REPÚBLICA DE CUBA<br>MINISTERIO DE COMUNICACIONES
+                </td>
+                <td class="title-cell">
+                    SOLICITUD DE LICENCIA PARA RADIOBASES PARA RADIOBASES DEL SISTEMA DE RADIO TRONCALIZADO ANALÓGICO O SU MODIFICACIÓN.
+                </td>
+                <td class="code-cell">F.07-C</td>
+            </tr>
+        </table>
+
+        <!-- usamos el mismo título sutil pero indicamos continuación (opcional) -->
+        <div class="instruction-title" style="font-size: 20px;">Instrucciones (continuación)</div>
+
+        <table class="content-table" style="margin-top:10px;">
+            <thead>
+                <tr>
+                    <th class="col-no">No. del campo</th>
+                    <th class="col-denominacion">Denominación del campo</th>
+                    <th class="col-especificaciones">Especificaciones del campo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="col-no">3.9.</td><td class="col-denominacion">Banda de Frecuencia del canal de transmisión</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.10.</td><td class="col-denominacion">Banda de Frecuencia del canal de recepción</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.11.</td><td class="col-denominacion">Ancho de Banda</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.12.</td><td class="col-denominacion">Tipo de Antena</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.13.</td><td class="col-denominacion">Cantidad</td><td class="col-especificaciones">Se refiere a la cantidad de antenas que componen el sistema</td></tr>
+                <tr><td class="col-no">3.14.</td><td class="col-denominacion">Polarización (Antena)</td><td class="col-especificaciones">Dirección del vector del campo eléctrico tal como es radiado por la antena</td></tr>
+                <tr><td class="col-no">3.15.</td><td class="col-denominacion">Ganancia (dB)</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.16.</td><td class="col-denominacion">Ganancia máxima en el eje del lóbulo principal (dBi)</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.17.</td><td class="col-denominacion">Altura del centro de radiación</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.18.</td><td class="col-denominacion">Para antenas directivas, anchura del haz del lóbulo principal (grados)</td><td class="col-especificaciones">Solo especificar en caso de antenas directivas</td></tr>
+                <tr><td class="col-no">3.19.</td><td class="col-denominacion">Azimut de la antena (grados)</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr><td class="col-no">3.20.</td><td class="col-denominacion">Altura total del sitio (Sobre el nivel del mar).</td><td class="col-especificaciones">Se explica por si solo</td></tr>
+                <tr class="special-row">
+                    <td class="col-no"></td>
+                    <td class="col-denominacion">Observaciones</td>
+                    <td class="col-especificaciones">En caso de que la solicitud sea de BAJA, Debe rellenar los datos de la Entidad y especificar los motivos de la misma en el campo Observaciones.</td>
+                </tr>
+                <tr class="special-row">
+                    <td class="col-no"></td>
+                    <td class="col-denominacion">Datos Solicitud</td>
+                    <td class="col-especificaciones">Fecha solicitud, se refiere a la fecha en que se envía el formulario. En la copia a enviar por vía electrónica, el espacio "Firma" se llenará con el número del Carné de Identidad o Pasaporte del solicitante.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> <!-- fin página 4 -->
+
+</body>
+</html>

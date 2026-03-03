@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario F.42 - Ministerio de Comunicaciones (Completo 5 páginas)</title>
+    <style>
+        /* ===== ESTILOS BASE (compartidos por todas las páginas) ===== */
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            line-height: 1.4;
+            padding: 20px;
+            color: #000;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* cada página se comporta como una hoja independiente */
+        .page {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 1100px; /* simula altura de oficio para contenido */
+        }
+
+        /* contenedor para las páginas de instrucciones (misma apariencia) */
+        .instruccion-page {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #000;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 1100px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        td, th {
+            border: 1px solid #000;
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .header-table td {
+            text-align: center;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .section-title {
+            font-style: italic;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .input-box {
+            height: 20px;
+            background: #fff;
+        }
+
+        .nit-box {
+            display: inline-block;
+            width: 18px;
+            height: 20px;
+            border: 1px solid #000;
+            margin-right: -1px;
+            background: #fff;
+        }
+
+        .checkbox {
+            display: inline-block;
+            width: 20px;
+            height: 15px;
+            border: 1px solid #000;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .no-border {
+            border: none;
+        }
+
+        .nested-table td {
+            border: 1px solid #000;
+        }
+
+        /* Estilos específicos para la página 2 */
+        .subsection-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .table-header {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 10px;
+            background-color: #fff;
+        }
+
+        .row-empty {
+            height: 25px;
+        }
+
+        /* Estilos para celdas de firmas y control */
+        .label-cell {
+            font-weight: bold;
+            width: 20%;
+        }
+
+        .data-cell {
+            width: 30%;
+        }
+
+        /* Estilos para las páginas de instrucciones (pág 3, 4 y 5) */
+        .instructions-title {
+            text-align: center;
+            font-size: 16px;
+            text-decoration: underline;
+            margin: 20px 0;
+            font-weight: normal;
+        }
+
+        .col-no { width: 10%; text-align: center; }
+        .col-name { width: 30%; font-weight: bold; }
+        .col-spec { width: 60%; text-align: justify; }
+
+        .table-head {
+            font-weight: bold;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        /* regla de impresión */
+        @media print {
+            body { background-color: #fff; padding: 0; }
+            .page, .instruccion-page { 
+                border: none; 
+                box-shadow: none; 
+                margin: 0 auto; 
+                page-break-after: always; 
+                min-height: 0; /* se ajusta al contenido real */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== PÁGINA 1 ==================== -->
+    <div class="page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 30%;">
+                    <div style="font-size: 9px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 9px; font-weight: normal;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 60%; font-size: 12px;">
+                    SOLICITUD DE AUTORIZACIÓN TÉCNICA PARA LA IMPORTACIÓN POR PERSONAS JURÍDICAS PARA LA IMPORTACIÓN DE EQUIPOS Y COMPONENTES REGULADOS POR EL MINISTERIO DE COMUNICACIONES.
+                </td>
+                <td style="width: 10%; font-size: 14px;">F.42</td>
+            </tr>
+        </table>
+
+        <div class="section-title">1. Datos de la entidad solicitante.</div>
+        
+        <div class="label">1.1. Nombre Completo de la entidad solicitante</div>
+        <div style="border: 1px solid #000; height: 25px; margin-bottom: 10px;"></div>
+
+        <table class="no-border">
+            <tr class="no-border">
+                <td class="no-border" style="width: 50%; padding-left: 0;">
+                    <span class="label">1.2. Número de Identificación Tributaria (NIT)</span>
+                    <div>
+                        <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div>
+                    </div>
+                </td>
+                <td class="no-border" style="width: 50%;">
+                    <span class="label">1.3. Código REEUP/ Reg. Cámara Comercio</span>
+                    <div>
+                        <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div> . <div class="nit-box"></div> . <div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div><div class="nit-box"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div class="label">1.4. Dirección de la Entidad</div>
+        <div style="border: 1px solid #000; height: 25px; margin-bottom: 10px;"></div>
+
+        <table>
+            <tr>
+                <td style="width: 50%;"><span class="label">1.5. Nombre y Apellidos Persona de Contacto</span><div class="input-box"></div></td>
+                <td style="width: 50%;"><span class="label">1.6. Cargo</span><div class="input-box"></div></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width: 35%;"><span class="label">1.7. Teléfono:</span><div class="input-box"></div></td>
+                <td style="width: 35%;"><span class="label">1.8. Fax:</span><div class="input-box"></div></td>
+                <td style="width: 30%;"><span class="label">1.9. Correo Electrónico</span><div class="input-box"></div></td>
+            </tr>
+        </table>
+
+        <div class="label">1.10. Clase de Medios</div>
+        <div style="border: 1px solid #000; height: 25px; margin-bottom: 10px;"></div>
+
+        <table>
+            <tr>
+                <td style="width: 50%;"><span class="label">1.11. País de Procedencia</span><div class="input-box"></div></td>
+                <td style="width: 50%;"><span class="label">1.12. Aduana de Acceso</span><div class="input-box"></div></td>
+            </tr>
+        </table>
+
+        <div class="section-title">2. Datos generales de la importación</div>
+        <span class="label">2.1. Documentos de referencia</span>
+        <table>
+            <tr>
+                <td style="width: 25%;">No. Contrato</td><td style="width: 25%;"></td>
+                <td style="width: 20%;">Anexo No.</td><td style="width: 10%;"></td>
+                <td style="width: 20%;">Suplemento No.</td>
+            </tr>
+            <tr>
+                <td>No. Factura:</td><td></td>
+                <td>GA o B/L:</td><td></td>
+                <td>RAD:</td>
+            </tr>
+            <tr>
+                <td colspan="2">No. Autorización Técnica para la contratación:</td>
+                <td colspan="2"></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <span class="label">2.2. Objetivo de la Importación</span>
+        <table>
+            <tr>
+                <td>Comercialización <span class="checkbox"></span></td>
+                <td>Empleo Directo <span class="checkbox"></span></td>
+                <td>Homologación <span class="checkbox"></span></td>
+                <td>Muestra Expositiva <span class="checkbox"></span></td>
+            </tr>
+        </table>
+
+        <span class="label">2.3. Periodo de la Importación</span>
+        <table>
+            <tr>
+                <td style="width: 30%;">Definitiva <span class="checkbox"></span></td>
+                <td style="width: 30%;">Temporal <span class="checkbox"></span></td>
+                <td style="width: 40%;">Tiempo Solicitado (meses) <span style="display:inline-block; border-left: 1px solid #000; width: 50%; height: 100%;"></span></td>
+            </tr>
+        </table>
+
+        <div class="section-title">3. Destino de la importación <span style="font-weight: normal; font-size: 11px;">(en los casos de importación para entidades comercializadoras)</span></div>
+        <table>
+            <tr>
+                <th style="width: 60%; border: 1px solid #000; text-align: left; padding: 5px;">3.1. Nombre de la entidad</th>
+                <th style="width: 40%; border: 1px solid #000; text-align: left; padding: 5px;">3.2. No. de permiso de comercialización</th>
+            </tr>
+            <tr><td height="20"></td><td></td></tr>
+            <tr><td height="20"></td><td></td></tr>
+            <tr><td height="20"></td><td></td></tr>
+            <tr><td height="20"></td><td></td></tr>
+            <tr><td height="20"></td><td></td></tr>
+        </table>
+    </div> <!-- fin página 1 -->
+
+    <!-- ==================== PÁGINA 2 ==================== -->
+    <div class="page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <div style="font-size: 9px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px; font-weight: normal;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 65%; font-size: 11px;">
+                    SOLICITUD DE AUTORIZACIÓN TÉCNICA PARA LA IMPORTACIÓN POR PERSONAS JURÍDICAS PARA LA IMPORTACIÓN DE EQUIPOS Y COMPONENTES REGULADOS POR EL MINISTERIO DE COMUNICACIONES.
+                </td>
+                <td style="width: 10%; font-size: 14px;">F.42</td>
+            </tr>
+        </table>
+
+        <div class="section-title">4. Datos de los equipos que se les solicita autorización</div>
+        
+        <table>
+            <thead>
+                <tr class="table-header">
+                    <th style="width: 7%;">No.</th>
+                    <th style="width: 30%;">DESCRIPCION</th>
+                    <th style="width: 15%;">MARCA</th>
+                    <th style="width: 15%;">MODELO</th>
+                    <th style="width: 15%;">CANTIDAD</th>
+                    <th style="width: 18%;">SUBPARTIDA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="row-empty"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <!-- se pueden añadir más filas si es necesario -->
+            </tbody>
+        </table>
+
+        <div class="subsection-label">Datos de la solicitud</div>
+        <table>
+            <tr>
+                <td class="label-cell">Fecha de Solicitud</td>
+                <td class="data-cell"></td>
+                <td class="label-cell">FIRMA</td>
+                <td class="data-cell"></td>
+            </tr>
+        </table>
+
+        <div class="subsection-label">Para uso del Control de Trámites</div>
+        <table>
+            <tr>
+                <td class="label-cell" style="width: 15%;">REGISTRO ENTRADA</td>
+                <td style="width: 15%;"></td>
+                <td class="label-cell" style="width: 15%;">FECHA APROBACION</td>
+                <td style="width: 25%;"></td>
+                <td class="label-cell" style="width: 15%;">REGISTRO SALIDA</td>
+                <td style="width: 15%;"></td>
+            </tr>
+        </table>
+    </div> <!-- fin página 2 -->
+
+    <!-- ==================== PÁGINA 3 (INSTRUCCIONES, primera parte) ==================== -->
+    <div class="instruccion-page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 30%;">
+                    <div style="font-size: 9px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px; font-weight: normal;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 60%; font-size: 11px;">
+                    SOLICITUD DE AUTORIZACIÓN TÉCNICA PARA LA IMPORTACIÓN POR PERSONAS JURÍDICAS PARA LA IMPORTACIÓN DE EQUIPOS Y COMPONENTES REGULADOS POR EL MINISTERIO DE COMUNICACIONES.
+                </td>
+                <td style="width: 10%; font-size: 14px;">F.42</td>
+            </tr>
+        </table>
+
+        <div class="instructions-title"></div>
+
+        <table>
+            <thead>
+                <tr class="table-head">
+                    <td class="col-no">No. del campo</td>
+                    <td class="col-name">Denominación del campo</td>
+                    <td class="col-spec">Especificaciones del campo</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-no">1.1.</td>
+                    <td class="col-name">Nombre Completo de la Entidad</td>
+                    <td class="col-spec">Nombre completo de la entidad jurídica que presenta la solicitud, no especificar solo con siglas.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.2.</td>
+                    <td class="col-name">Número de Identificación Tributaria (NIT)</td>
+                    <td class="col-spec">Número de Identificación asignado a las personas jurídicas por la Oficina Nacional de administración Tributaria (ONAT). Para las personas naturales coincide con el número del Carné de Identidad. No aplica en el caso de las misiones diplomáticas.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.3.</td>
+                    <td class="col-name">Código de la Entidad:</td>
+                    <td class="col-spec">Número del código asignado por la ONEI en el caso de entidades nacionales o del Registro en la Cámara de Comercio en los casos de las empresas mixtas, AEI, etc. En el caso de especificar el Reg. Cámara de Comercio emplear solo los últimos 5 campos para ello. No aplica en el caso de las misiones diplomáticas.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.4.</td>
+                    <td class="col-name">Dirección de la Entidad</td>
+                    <td class="col-spec">Domicilio legal de la entidad</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.5.</td>
+                    <td class="col-name">Nombre del Representante legal</td>
+                    <td class="col-spec">Datos del máximo representante de la entidad</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.6.</td>
+                    <td class="col-name">Cargo</td>
+                    <td class="col-spec">Cargo de la persona de contacto</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.7.</td>
+                    <td class="col-name">Teléfono</td>
+                    <td class="col-spec">Teléfono fijo o móvil del representante legal de la entidad</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.8.</td>
+                    <td class="col-name">FAX</td>
+                    <td class="col-spec">Fax del representante legal o de la entidad.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.9.</td>
+                    <td class="col-name">Correo Electrónico</td>
+                    <td class="col-spec">Correspondiente al representante legal de la entidad</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.10.</td>
+                    <td class="col-name">Clase de Medio</td>
+                    <td class="col-spec">Especificar la familia de medios de que se trata la solicitud, por ejemplo: pizarras telefónicas privadas, equipos para fax, teléfonos alámbricos (inalámbricos), medios inalámbricos para redes de datos (RLAN), módems, routers, switches, radiotransmisores, antenas, etc. Si en el lote están incluidos medios de más de una de estas familias, consignarlo así en este espacio.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.11.</td>
+                    <td class="col-name">País de Procedencia</td>
+                    <td class="col-spec">País de procedencia del embarque</td>
+                </tr>
+                <tr>
+                    <td class="col-no">1.12.</td>
+                    <td class="col-name">Aduana de Acceso</td>
+                    <td class="col-spec">Especificar si es puerto o aeropuerto</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> <!-- fin página 3 (instrucciones parte 1) -->
+
+    <!-- ==================== PÁGINA 4 (INSTRUCCIONES, segunda parte) ==================== -->
+    <div class="instruccion-page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <div style="font-size: 9px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px; font-weight: normal;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 65%; font-size: 11px;">
+                    SOLICITUD DE AUTORIZACIÓN TÉCNICA PARA LA IMPORTACIÓN POR PERSONAS JURÍDICAS PARA LA IMPORTACIÓN DE EQUIPOS Y COMPONENTES REGULADOS POR EL MINISTERIO DE COMUNICACIONES.
+                </td>
+                <td style="width: 10%; font-size: 14px;">F.42</td>
+            </tr>
+        </table>
+
+        <div class="instructions-title"></div>
+
+        <table>
+            <thead>
+                <tr class="table-head">
+                    <td class="col-no">No. del campo</td>
+                    <td class="col-name">Denominación del campo</td>
+                    <td class="col-spec">Especificaciones del campo</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-no">2.1.</td>
+                    <td class="col-name">Documentos de referencia</td>
+                    <td class="col-spec">Debe poner con carácter obligatorio al menos un documento de referencia mediante el cual se realizará la importación de la mercancía (Factura, la Guía Aérea (GA), el Conocimiento de Embarque (B/L)), o el Acta de Retención (RAD) emitida por la Aduana, según proceda en cada caso. Si se ha emitido con anterioridad una Autorización Técnica para la Contratación, se pondrá su número con el objetivo de agilizar el trámite.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">2.2.</td>
+                    <td class="col-name">Objetivo de la Importación</td>
+                    <td class="col-spec">Debe definirse cuál de los seis objetivos relacionados se persigue con la importación. En el concepto "Empleo Directo" entran los casos de importaciones con el fin de ser utilizadas por personas naturales o jurídicas en su propio interés, o sea, no destinada a la comercialización.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">2.3.</td>
+                    <td class="col-name">Periodo de la Importación</td>
+                    <td class="col-spec">La importación se considera definitiva si el destino es la comercialización o el ensamblaje, para futura comercialización. Las muestras destinadas a exposiciones, al proceso de Homologación o a Pruebas de Campo, se importarán con carácter temporal, debiendo significarse por qué tiempo se solicita su permanencia en el país. Las autorizaciones para Empleo Directo serán, por lo general, definitivas, salvo en el caso que se soliciten con carácter temporal, por tratarse de medios a introducir en el país para determinados trabajos y que luego deben ser retornados al país de origen.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">3.1.</td>
+                    <td class="col-name">Nombre de la entidad</td>
+                    <td class="col-spec">Se detallan los nombres de las entidades a la cual se le importan los equipos (en los casos que la importación se realice para entidades comercializadoras, como pueden ser las FGNE).</td>
+                </tr>
+                <tr>
+                    <td class="col-no">3.2.</td>
+                    <td class="col-name">No. de permiso de comercialización</td>
+                    <td class="col-spec">Se detalla el número del permiso de comercialización emitido por el Ministerio de Comunicaciones a la entidad de referencia.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div> <!-- fin página 4 (instrucciones parte 2) -->
+
+    <!-- ==================== PÁGINA 5 (INSTRUCCIONES, tercera parte - FINAL) ==================== -->
+    <div class="instruccion-page">
+        <table class="header-table">
+            <tr>
+                <td style="width: 25%;">
+                    <div style="font-size: 9px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 8px; font-weight: normal;">MINISTERIO DE COMUNICACIONES</div>
+                </td>
+                <td style="width: 65%; font-size: 11px;">
+                    SOLICITUD DE AUTORIZACIÓN TÉCNICA PARA LA IMPORTACIÓN POR PERSONAS JURÍDICAS PARA LA IMPORTACIÓN DE EQUIPOS Y COMPONENTES REGULADOS POR EL MINISTERIO DE COMUNICACIONES.
+                </td>
+                <td style="width: 10%; font-size: 14px;">F.42</td>
+            </tr>
+        </table>
+
+        <div class="instructions-title"></div>
+
+        <table>
+            <thead>
+                <tr class="table-head">
+                    <td class="col-no">No. del campo</td>
+                    <td class="col-name">Denominación del campo</td>
+                    <td class="col-spec">Especificaciones del campo</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-no">4.1.</td>
+                    <td class="col-name">Descripción del equipo</td>
+                    <td class="col-spec">Se debe detallar la descripción completa del equipo, incluyendo las principales características técnicas que permitan su identificación inequívoca. Para el caso de equipos radiotransmisores se deben especificar la banda de frecuencia de operación y demás características relevantes.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">4.2.</td>
+                    <td class="col-name">Marca y Modelo</td>
+                    <td class="col-spec">Corresponde a la marca y modelo específico del equipo que se desea importar. Esta información debe coincidir exactamente con la que aparece en la documentación de soporte (factura, contrato, etc.).</td>
+                </tr>
+                <tr>
+                    <td class="col-no">4.3.</td>
+                    <td class="col-name">Cantidad</td>
+                    <td class="col-spec">Número de unidades de cada equipo o componente que se pretende importar.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">4.4.</td>
+                    <td class="col-name">Subpartida arancelaria</td>
+                    <td class="col-spec">Código de la subpartida arancelaria según el Sistema Armonizado de Designación y Codificación de Mercancías, vigente en la aduana cubana.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">-</td>
+                    <td class="col-name">Datos de la solicitud</td>
+                    <td class="col-spec">Fecha en que se presenta la solicitud. La firma deberá ser del representante legal de la entidad o persona apoderada, haciendo constar nombre y cargo.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">-</td>
+                    <td class="col-name">Control de Trámites</td>
+                    <td class="col-spec">Espacio reservado para uso exclusivo del Ministerio de Comunicaciones. No debe ser llenado por el solicitante.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">-</td>
+                    <td class="col-name">Documentación anexa requerida</td>
+                    <td class="col-spec">Se debe adjuntar: copia del NIT, permiso de comercialización vigente (si aplica), factura proforma o contrato, y cualquier otra documentación técnica que acredite el cumplimiento de las regulaciones vigentes.</td>
+                </tr>
+                <tr>
+                    <td class="col-no">-</td>
+                    <td class="col-name">Plazo de respuesta</td>
+                    <td class="col-spec">El Ministerio de Comunicaciones dispondrá de un plazo máximo de 10 días hábiles para emitir la autorización técnica, una vez presentada la documentación completa y correcta.</td>
+                </tr>
+            </tbody>
+        </table>
+</body>
+</html>

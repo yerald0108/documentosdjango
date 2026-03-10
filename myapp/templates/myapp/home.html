@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio de Comunicaciones — Formularios</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy:   #0a1628;
+            --blue:   #1a3560;
+            --gold:   #c8a84b;
+            --gold-lt:#e8c96a;
+            --cream:  #f5f0e8;
+            --white:  #ffffff;
+            --gray:   #8a96a8;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--cream);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── diagonal background stripes ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    -55deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(255,255,255,.015) 60px,
+                    rgba(255,255,255,.015) 61px
+                );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── header ── */
+        header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 40px 60px 32px;
+            border-bottom: 1px solid rgba(200,168,75,.25);
+        }
+
+        .header-badge {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-badge svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--gold);
+        }
+
+        .header-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .header-text p {
+            font-size: 11px;
+            font-weight: 300;
+            letter-spacing: .1em;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        /* ── hero ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 72px 60px 56px;
+        }
+
+        .hero-label {
+            font-size: 11px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-label::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 900;
+            line-height: 1.05;
+            max-width: 700px;
+            color: var(--white);
+        }
+
+        .hero h2 em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--gray);
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        /* ── grid ── */
+        .grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2px;
+            padding: 0 60px 80px;
+        }
+
+        /* ── card ── */
+        .card {
+            position: relative;
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.07);
+            padding: 40px 36px 36px;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            transition: background .3s, border-color .3s, transform .3s;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            cursor: pointer;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s ease;
+        }
+
+        .card:hover {
+            background: rgba(200,168,75,.06);
+            border-color: rgba(200,168,75,.3);
+            transform: translateY(-3px);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-code {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: rgba(200,168,75,.18);
+            line-height: 1;
+            letter-spacing: -.02em;
+            transition: color .3s;
+            user-select: none;
+        }
+
+        .card:hover .card-code {
+            color: rgba(200,168,75,.35);
+        }
+
+        .card-body {
+            flex: 1;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 9px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(200,168,75,.1);
+            border: 1px solid rgba(200,168,75,.25);
+            padding: 3px 10px;
+            margin-bottom: 14px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.45;
+            color: var(--white);
+        }
+
+        .card-arrow {
+            align-self: flex-end;
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(200,168,75,.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s, border-color .3s, transform .3s;
+        }
+
+        .card:hover .card-arrow {
+            background: var(--gold);
+            border-color: var(--gold);
+            transform: translate(3px, -3px);
+        }
+
+        .card-arrow svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke .3s;
+        }
+
+        .card:hover .card-arrow svg {
+            stroke: var(--navy);
+        }
+
+        /* ── footer ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid rgba(200,168,75,.15);
+            padding: 24px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        footer p {
+            font-size: 11px;
+            letter-spacing: .08em;
+            color: var(--gray);
+            text-transform: uppercase;
+        }
+
+        .footer-line {
+            flex: 1;
+            height: 1px;
+            background: rgba(200,168,75,.1);
+        }
+
+        /* ── entrance animations ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero  { animation: fadeUp .7s ease both; }
+        .card  { animation: fadeUp .6s ease both; }
+        .card:nth-child(1) { animation-delay: .1s; }
+        .card:nth-child(2) { animation-delay: .18s; }
+        .card:nth-child(3) { animation-delay: .26s; }
+        .card:nth-child(4) { animation-delay: .34s; }
+        .card:nth-child(5) { animation-delay: .42s; }
+
+        @media (max-width: 720px) {
+            header, .hero, .grid, footer { padding-left: 24px; padding-right: 24px; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-badge">
+            <!-- shield / star icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/>
+            </svg>
+        </div>
+        <div class="header-text">
+            <h1>República de Cuba</h1>
+            <p>Ministerio de Comunicaciones — Portal de Formularios</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-label">Gestión de Trámites</div>
+        <h2>Formularios <em>Oficiales</em><br>de Telecomunicaciones</h2>
+        <p class="hero-sub">Acceda a los formularios de solicitud vigentes emitidos por el Ministerio de Comunicaciones de la República de Cuba.</p>
+    </section>
+
+    <main class="grid">
+
+        <a class="card" href="{% url 'formulario_f01' %}">
+            <div class="card-code">F.01</div>
+            <div class="card-body">
+                <span class="card-tag">Redes Privadas</span>
+                <p class="card-title">Solicitud de inscripción de Redes Privadas de Datos por personas jurídicas</p>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a class="card" href="{% url 'formulario_f07' %}">
+            <div class="card-code">F.07</div>
+            <div class="card-body">
+                <span class="card-tag">Radiobases</span>
+                <p class="card-title">Solicitud de licencia de operación para radiobases del sistema troncalizado analógico o su modificación</p>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a class="card" href="{% url 'formulario_f12' %}">
+            <div class="card-code">F.12</div>
+            <div class="card-body">
+                <span class="card-tag">Servicio Marítimo</span>
+                <p class="card-title">Solicitud de nuevo sistema de frecuencia para estación Fija del Servicio Móvil Marítimo, su modificación o la cancelación de un sistema existente</p>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a class="card" href="{% url 'formulario_f42' %}">
+            <div class="card-code">F.42</div>
+            <div class="card-body">
+                <span class="card-tag">Importación</span>
+                <p class="card-title">Solicitud por personas jurídicas de la Autorización Técnica para la Importación de Equipos de Telecomunicaciones Act 2024</p>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+        <a class="card" href="{% url 'formulario_f60' %}">
+            <div class="card-code">F.60</div>
+            <div class="card-body">
+                <span class="card-tag">Licencias</span>
+                <p class="card-title">Solicitud de renovación o cancelación de licencia de operación</p>
+            </div>
+            <div class="card-arrow">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+        </a>
+
+    </main>
+
+    <footer>
+        <p>MINCOM &copy; 2024</p>
+        <div class="footer-line"></div>
+        <p>Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>

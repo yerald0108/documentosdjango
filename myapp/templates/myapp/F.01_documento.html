@@ -8,8 +8,8 @@
         /* ===== ESTILOS BASE (compartidos por todas las páginas) ===== */
         body {
             font-family: Arial, sans-serif;
-            font-size: 10px;
-            line-height: 1.2;
+            font-size: 18px;  /* Tamaño base aumentado a 18px */
+            line-height: 1.4;
             padding: 20px;
             color: #000;
             background-color: #f0f0f0;
@@ -22,7 +22,7 @@
             margin: 20px auto;
             background-color: #fff;
             border: 1px solid #000;
-            padding: 15px;
+            padding: 25px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 1100px; /* simula altura de oficio para contenido */
         }
@@ -33,18 +33,18 @@
             margin: 20px auto;
             background-color: #fff;
             border: 1px solid #000;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 1100px;
         }
 
         /* página para el modelo de subredes (formato más ancho) */
         .subredes-page {
-            max-width: 1100px;
+            max-width: 1200px;  /* Aumentado para mejor visualización */
             margin: 20px auto;
             background-color: #fff;
             border: 1px solid #000;
-            padding: 15px;
+            padding: 25px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 1100px;
         }
@@ -52,38 +52,42 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         td {
             border: 1px solid #000;
-            padding: 4px;
+            padding: 10px;  /* Aumentado el padding para mejor legibilidad */
             vertical-align: top;
+            font-size: 18px;
         }
 
         .header-table td {
             text-align: center;
             font-weight: bold;
             vertical-align: middle;
+            font-size: 18px;
         }
 
         .section-title {
             font-style: italic;
-            font-size: 13px;
+            font-size: 20px;  /* Aumentado para títulos de sección */
             font-weight: bold;
-            margin-top: 12px;
-            margin-bottom: 4px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         .label {
             display: block;
-            font-size: 9px;
-            margin-bottom: 2px;
+            font-size: 18px;  /* Aumentado a 18px */
+            margin-bottom: 5px;
         }
 
         .input-fill {
-            height: 18px;
+            height: 28px;  /* Aumentado */
             background: #fff;
+            border-bottom: 1px solid #000;
+            width: 100%;
         }
 
         .box-container {
@@ -93,80 +97,83 @@
         }
 
         .small-box {
-            width: 18px;
-            height: 18px;
+            width: 28px;  /* Aumentado */
+            height: 28px;
             border: 1px solid #000;
             margin-right: -1px;
             background: #fff;
         }
 
         .check-box {
-            width: 14px;
-            height: 14px;
+            width: 22px;  /* Aumentado */
+            height: 22px;
             border: 1px solid #000;
             display: inline-block;
             vertical-align: middle;
-            margin-left: 5px;
+            margin-left: 8px;
             background: #fff;
         }
 
         .type-selector {
             display: flex;
             justify-content: flex-end;
-            gap: 15px;
+            gap: 20px;
             border: 1px solid #000;
-            padding: 4px;
-            margin-bottom: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
             font-weight: bold;
+            font-size: 18px;
         }
 
         .geo-box {
             border-bottom: 1px solid #000;
-            width: 30px;
+            width: 45px;  /* Aumentado */
             display: inline-block;
-            height: 12px;
+            height: 18px;
             background: #fff;
         }
 
         /* Estilos específicos para la página 2 */
         .obs-box {
             border: 1px solid #000;
-            height: 80px;
+            height: 100px;  /* Aumentado */
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             background: #fff;
         }
 
         .annex-list {
             list-style: none;
             padding-left: 0;
-            font-size: 9.5px;
+            font-size: 18px;  /* Aumentado */
         }
 
         .annex-list li {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             position: relative;
-            padding-left: 20px;
+            padding-left: 30px;
         }
 
         .annex-list li::before {
             content: "○";
             position: absolute;
             left: 0;
+            font-size: 20px;
         }
 
         .footer-table td {
-            height: 30px;
+            height: 40px;  /* Aumentado */
             font-weight: bold;
             text-align: center;
+            font-size: 18px;
         }
 
         /* Estilos para las páginas de instrucciones */
         .instructions-title {
             text-align: center;
-            font-size: 15px;
+            font-size: 24px;  /* Aumentado significativamente */
             text-decoration: underline;
-            margin: 15px 0;
+            margin: 25px 0;
         }
 
         .table-head {
@@ -185,120 +192,122 @@
             margin: 20px auto;
             background-color: #fff;
             border: 1px solid #000;
-            padding: 30px;
+            padding: 40px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 1100px;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 18px;  /* Aumentado */
+            line-height: 1.8;
         }
 
         .carta-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
         }
 
         .carta-header img {
-            width: 40px;
+            width: 60px;  /* Aumentado */
             height: auto;
             vertical-align: middle;
         }
 
         .carta-header-text {
-            font-size: 11px;
+            font-size: 18px;  /* Aumentado */
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .form-id-tag {
             float: right;
             border: 1px solid #000;
-            padding: 8px 15px;
-            font-size: 16px;
+            padding: 12px 20px;  /* Aumentado */
+            font-size: 22px;  /* Aumentado */
             font-weight: bold;
-            margin-top: -15px;
+            margin-top: -20px;
         }
 
         .carta-title {
             text-align: center;
             font-weight: bold;
-            font-size: 12px;
-            margin-bottom: 40px;
+            font-size: 18px;  /* Aumentado */
+            margin-bottom: 60px;
             clear: both;
         }
 
         .date-line {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .recipient {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: bold;
         }
 
         .subject {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-weight: bold;
         }
 
         .content {
             text-align: justify;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         .underline-input {
             display: inline-block;
-            border-bottom: 1px solid red;
-            min-width: 150px;
+            border-bottom: 2px solid red;  /* Más visible */
+            min-width: 200px;  /* Aumentado */
             text-align: center;
+            height: 24px;  /* Aumentado */
         }
 
         .signature-section {
-            margin-top: 80px;
+            margin-top: 100px;
             text-align: center;
         }
 
         .signature-line {
-            width: 300px;
-            border-top: 1px solid #000;
+            width: 400px;  /* Aumentado */
+            border-top: 2px solid #000;  /* Más visible */
             margin: 0 auto;
-            padding-top: 5px;
+            padding-top: 10px;
         }
 
         /* Estilos específicos para la página 6 (Modelo Subredes) - CORREGIDO */
         .subredes-header-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .subredes-header-table td {
             border: 1px solid #000;
-            padding: 5px;
+            padding: 10px;
             text-align: center;
             font-weight: bold;
+            font-size: 18px;
         }
         .excel-note {
             color: red;
             font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 11px;
+            margin-bottom: 15px;
+            font-size: 18px;  /* Aumentado */
         }
         .excel-note span {
             text-decoration: underline;
         }
         .instructions-box {
             border: 2px solid #000;
-            width: 420px;
-            padding: 8px;
-            margin-bottom: 20px;
+            width: 500px;  /* Aumentado */
+            padding: 15px;  /* Aumentado */
+            margin-bottom: 25px;
         }
         .instructions-box-title {
             color: red;
             font-weight: bold;
             text-align: center;
             border-bottom: 1px solid #000;
-            margin-bottom: 8px;
-            font-size: 10px;
+            margin-bottom: 12px;
+            font-size: 18px;  /* Aumentado */
         }
         .data-table {
             width: 100%;
@@ -307,20 +316,21 @@
         }
         .data-table th, .data-table td {
             border: 1px solid #000;
-            padding: 4px;
+            padding: 8px;  /* Aumentado */
             text-align: center;
             word-wrap: break-word;
+            font-size: 16px;  /* Mantenemos un poco más pequeño por espacio */
         }
         .data-table th {
             background-color: #ffffff;
-            font-size: 8px;
+            font-size: 15px;  /* Aumentado */
             font-weight: bold;
         }
         .group-header {
-            font-size: 9px;
+            font-size: 16px;  /* Aumentado */
         }
         .empty-row {
-            height: 22px;
+            height: 35px;  /* Aumentado */
         }
         .col-entidad { width: 100px; }
         .col-dir { width: 100px; }
@@ -345,13 +355,13 @@
         <table class="header-table">
             <tr>
                 <td style="width: 25%;">
-                    <div style="font-size: 8px;">REPÚBLICA DE CUBA</div>
-                    <div style="font-size: 7px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
+                    <div style="font-size: 16px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 16px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
                 </td>
-                <td style="width: 65%; font-size: 11px;">
+                <td style="width: 65%; font-size: 18px;">
                     SOLICITUD DE INSCRIPCIÓN DE REDES PRIVADAS DE DATOS POR PERSONAS JURÍDICAS.
                 </td>
-                <td style="width: 10%; font-size: 14px;">F.01</td>
+                <td style="width: 10%; font-size: 22px;">F.01</td>
             </tr>
         </table>
 
@@ -363,7 +373,7 @@
 
         <div class="section-title">1. Datos Entidad Solicitante</div>
         <div class="label">1.1. Nombre Completo de la entidad solicitante</div>
-        <div style="border: 1px solid #000; height: 20px; margin-bottom: 8px;"></div>
+        <div style="border: 1px solid #000; height: 28px; margin-bottom: 15px;"></div>
 
         <table>
             <tr>
@@ -403,7 +413,7 @@
 
         <div class="section-title">2. Datos del Nodo Principal de la Red</div>
         <div class="label">2.1. Dirección Nodo Principal</div>
-        <div style="border: 1px solid #000; height: 20px; margin-bottom: 8px;"></div>
+        <div style="border: 1px solid #000; height: 28px; margin-bottom: 15px;"></div>
 
         <table>
             <tr>
@@ -429,7 +439,7 @@
         </table>
 
         <div class="label">3.6. Principales Servicios de la Red</div>
-        <table style="font-size: 8px;">
+        <table style="font-size: 16px;">
             <tr>
                 <td>Ficheros FTP <div class="check-box"></div></td>
                 <td>Bases de Datos <div class="check-box"></div></td>
@@ -452,13 +462,13 @@
         <table class="header-table">
             <tr>
                 <td style="width: 25%;">
-                    <div style="font-size: 8px;">REPÚBLICA DE CUBA</div>
-                    <div style="font-size: 7px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
+                    <div style="font-size: 16px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 16px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
                 </td>
-                <td style="width: 65%; font-size: 11px;">
+                <td style="width: 65%; font-size: 18px;">
                     SOLICITUD DE INSCRIPCIÓN DE REDES PRIVADAS DE DATOS POR PERSONAS JURÍDICAS.
                 </td>
-                <td style="width: 10%; font-size: 14px;">F.01</td>
+                <td style="width: 10%; font-size: 22px;">F.01</td>
             </tr>
         </table>
 
@@ -517,13 +527,13 @@
         <table class="header-table">
             <tr>
                 <td style="width: 25%;">
-                    <div style="font-size: 8px;">REPÚBLICA DE CUBA</div>
-                    <div style="font-size: 7px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
+                    <div style="font-size: 16px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 16px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
                 </td>
-                <td style="width: 65%; font-size: 11px;">
+                <td style="width: 65%; font-size: 18px;">
                     SOLICITUD DE INSCRIPCIÓN DE REDES PRIVADAS DE DATOS POR PERSONAS JURÍDICAS.
                 </td>
-                <td style="width: 10%; font-size: 14px;">F.01</td>
+                <td style="width: 10%; font-size: 22px;">F.01</td>
             </tr>
         </table>
 
@@ -598,13 +608,13 @@
         <table class="header-table">
             <tr>
                 <td style="width: 25%;">
-                    <div style="font-size: 8px;">REPÚBLICA DE CUBA</div>
-                    <div style="font-size: 7px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
+                    <div style="font-size: 16px;">REPÚBLICA DE CUBA</div>
+                    <div style="font-size: 16px; font-weight: normal; color: #0033a0;">MINISTERIO DE COMUNICACIONES</div>
                 </td>
-                <td style="width: 65%; font-size: 11px;">
+                <td style="width: 65%; font-size: 18px;">
                     SOLICITUD DE INSCRIPCIÓN DE REDES PRIVADAS DE DATOS POR PERSONAS JURÍDICAS.
                 </td>
-                <td style="width: 10%; font-size: 14px;">F.01</td>
+                <td style="width: 10%; font-size: 22px;">F.01</td>
             </tr>
         </table>
 
@@ -674,12 +684,12 @@
         <div class="form-id-tag">F.01</div>
         
         <div class="carta-header">
-            <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">
+            <div style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">
                 SOLICITUD DE INSCRIPCIÓN DE REDES<br>
                 PRIVADAS DE DATOS POR PERSONAS<br>
                 JURÍDICAS.
             </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coat_of_arms_of_Cuba.svg/1200px-Coat_of_arms_of_Cuba.svg.png" alt="Escudo Cuba" style="width: 40px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coat_of_arms_of_Cuba.svg/1200px-Coat_of_arms_of_Cuba.svg.png" alt="Escudo Cuba" style="width: 60px;">
             <div class="carta-header-text">
                 REPÚBLICA DE CUBA<br>
                 MINISTERIO DE COMUNICACIONES
@@ -691,7 +701,7 @@
         </div>
 
         <div class="date-line">
-            La Habana, <span class="underline-input" style="min-width: 50px;"></span> de <span class="underline-input" style="min-width: 120px;"></span> del 2019<br>
+            La Habana, <span class="underline-input" style="min-width: 80px;"></span> de <span class="underline-input" style="min-width: 150px;"></span> del 2019<br>
             “Año 61 de La Revolución”
         </div>
 
@@ -705,7 +715,7 @@
 
         <div class="content">
             Estimado (a) Director (a):<br><br>
-            En concordancia con lo establecido por la Res 99/19 del MINCOM, y en mi carácter de Representante Legal de la entidad <span class="underline-input" style="min-width: 300px;"></span>, acredito por la presente, que hemos designado al (compañero-a) (funcionario –a) <span class="underline-input" style="min-width: 250px;"></span> con Carné de Identidad Permanente (Pasaporte) No. <span class="underline-input" style="min-width: 200px;"></span>, para realizar los trámites relacionados con el Registro de la Red Privada de Datos de esta entidad.
+            En concordancia con lo establecido por la Res 99/19 del MINCOM, y en mi carácter de Representante Legal de la entidad <span class="underline-input" style="min-width: 350px;"></span>, acredito por la presente, que hemos designado al (compañero-a) (funcionario –a) <span class="underline-input" style="min-width: 300px;"></span> con Carné de Identidad Permanente (Pasaporte) No. <span class="underline-input" style="min-width: 250px;"></span>, para realizar los trámites relacionados con el Registro de la Red Privada de Datos de esta entidad.
         </div>
 
         <div class="signature-section">
@@ -719,13 +729,13 @@
         <table class="subredes-header-table">
             <tr>
                 <td style="width: 25%;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coat_of_arms_of_Cuba.svg/1200px-Coat_of_arms_of_Cuba.svg.png" alt="Escudo" style="width: 30px;"><br>
-                    <span style="font-size: 8px;">REPÚBLICA DE CUBA<br>MINISTERIO DE COMUNICACIONES</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coat_of_arms_of_Cuba.svg/1200px-Coat_of_arms_of_Cuba.svg.png" alt="Escudo" style="width: 45px;"><br>
+                    <span style="font-size: 16px;">REPÚBLICA DE CUBA<br>MINISTERIO DE COMUNICACIONES</span>
                 </td>
-                <td style="width: 65%; font-size: 13px;">
+                <td style="width: 65%; font-size: 20px;">
                     SOLICITUD DE INSCRIPCIÓN DE REDES PRIVADAS DE DATOS POR PERSONAS JURÍDICAS.
                 </td>
-                <td style="width: 10%; font-size: 16px;">F.01</td>
+                <td style="width: 10%; font-size: 24px;">F.01</td>
             </tr>
         </table>
 
@@ -735,7 +745,7 @@
 
         <div class="instructions-box">
             <div class="instructions-box-title">INSTRUCCIONES PARA EL LLENADO DEL DOCUMENTO</div>
-            <div style="text-align: justify;">
+            <div style="text-align: justify; font-size: 16px;">
                 1. Si el Enlace en CONMUTADO la velocidad es 0. Se pone el valor automáticamente al seleccionar este enlace.<br>
                 2. En los casos de los Servicios (RLAN, VPN, PLC, VoIP) si el subnodo NO POSEE alguno de los servicios se debe dejar el campo en blanco.<br>
                 3. En los casos de los subnodos que poseen RLAN y PLC se sombrea en color las celdas donde debe especificar el número de autorizo, en caso de que no se introduzca el número de autorizo. Las cuales no deben quedar en blanco.
